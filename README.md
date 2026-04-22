@@ -41,6 +41,8 @@ ls -l
 echo teste
 comando_inexistente
 exit
+cd
+mkdir
 ```
 
 Tambem pressione Enter em uma linha vazia ou digite apenas espacos para confirmar
@@ -54,7 +56,6 @@ Este shell implementa apenas o fluxo basico de execucao de comandos externos com
 Nao ha suporte a:
 
 - pipes (`|`);
-- redirecionamento (`>`, `<`, `>>`);
 - execucao em background (`&`);
 - historico de comandos;
 - autocomplete;

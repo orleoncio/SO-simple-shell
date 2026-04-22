@@ -26,7 +26,7 @@ int main() {
     char *args[MAX_ARGS];
 
     while (1) {
-        printf("myshell> ");
+        printf("minimalistshell> ");
         fflush(stdout);
 
         if (fgets(line, MAX_LINE, stdin) == NULL) {
@@ -44,10 +44,19 @@ int main() {
             break;
         }
 
+        if (strcmp(args[0], "cd") == 0) {
+            if (args[1] == NULL) {
+                fprintf(stderr, "Uso: cd <diretorio>\n");
+            } else if (chdir(args[1]) == -1) {
+                perror("Erro no cd");
+            }
+            continue;
+        }
+
         pid_t pid = fork();
 
         if (pid < 0) {
-            perror("Erro no fork");
+            perror("Erro no fork, nao foi possivel alocar memoria");
             continue;
         }
 
