@@ -7,6 +7,8 @@
 #define MAX_LINE 1024
 #define MAX_ARGS 64
 
+
+//Ajuste no parsing
 void parse_command(char *line, char **args) {
     int i = 0;
 
@@ -29,7 +31,7 @@ int main() {
 
         if (fgets(line, MAX_LINE, stdin) == NULL) {
             printf("\n");
-            break; 
+            break; // Ctrl + D
         }
 
         parse_command(line, args);
